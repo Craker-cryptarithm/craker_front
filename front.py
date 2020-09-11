@@ -37,10 +37,14 @@ txt_diff.place(relx = 0.55, rely = 0.05)
 txt_digits = tk.Entry(width = 3)
 txt_digits.place(relx = 0.55, rely = 0.1)
 
+
+var_ans = tk.StringVar()
+var_ans.set("")
 ##ボタンが押された時に実行される関数
 def clicked(self):
     input_diff = txt_diff.get()
     input_digits = txt_digits.get()
+    ###エラーメッセージ
     if input_diff == "" or input_digits == "":
         res_null_error = messagebox.showwarning("エラー", "数字を入力してください")
         print("showwarning", res_null_error)
@@ -55,8 +59,17 @@ def clicked(self):
         res_digits_error = messagebox.showwarning("エラー", "桁数は1~6の数字で答えてください")
         print("showwarning", res_digits_error)
         return 1
-        
+    
+    ###本題
+    problem, ans, diff = back.problem_maker(input_diff, input_digits)
+    
+    strings = back.print_figure(problem)
+    var_ans.set(strings)
+label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック")
+label_ans.place(relx = 0.45, rely = 0.3)
 
+
+#var_2.set(divisor(int(input_num)))
 ##ボタン作成
 button = tk.Button(root, text = "問題を作成！")
 button.bind("<Button-1>", clicked)
