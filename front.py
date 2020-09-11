@@ -3,6 +3,7 @@
 #tkinterの準備
 import tkinter as tk
 from tkinter import messagebox
+from multiprocessing.pool import ThreadPool
 
 #バックを利用するのに使うやつ
 import sys
@@ -81,14 +82,17 @@ def clicked_1(self):
     
     button_problem.config(state = 'disable')
     ###本題
-    problem, ans, diff = back.problem_maker(input_diff, input_digits)
+    pool = ThreadPool(processes = 1)
+    problem, ans, diff = pool.apply_async(back.problem_maker, (input_diff, input_digits,)).get()
     strings = back.print_figure(problem)
     var_problem.set(strings)
     var_diff.set("実測難易度:" + str(diff))
+    button_problem.config(state = 'active')
 label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック")
 label_problem.place(relx = 0.45, rely = 0.2)
 label_real_diff = tk.Label(root, textvariable = var_diff, font = "VLゴシック")
 label_real_diff.place(relx = 0.7, rely = 0.2)
+
 
 ##問題作成ボタン作成
 button_problem = tk.Button(root, text = "問題を作成！")
