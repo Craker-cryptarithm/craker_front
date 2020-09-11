@@ -25,7 +25,7 @@ label_title = tk.Label(root, text = "虫食い算")
 label_title.place(relx = 0.45, rely = 0.01)
 
 label_diff = tk.Label(root, text = "難易度")
-label_diff.place(relx = 0.35, rely = 0.05)
+label_diff.place(relx = 0.35, rely = 0.07)
 
 label_digits = tk.Label(root, text = "桁数の最大値(1~5)")
 label_digits.place(relx = 0.35, rely = 0.1)
@@ -38,10 +38,14 @@ txt_digits = tk.Entry(width = 3)
 txt_digits.place(relx = 0.55, rely = 0.1)
 
 ##スケールの作成
-input_diff = tk.IntVar()
-input_diff.set(0)
-scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = input_diff, showvalue = False)
-scale_diff.place(relx = 0.5, rely = 0.05)
+label_difficult = tk.Label(root, text = "難")
+label_easy = tk.Label(root, text = "易")
+label_difficult.place(relx = 0.62, rely = 0.04)
+label_easy.place(relx = 0.5, rely = 0.04)
+var_input_diff = tk.IntVar(master = root, value = 0)
+#var_diff.set(0)
+scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1)
+scale_diff.place(relx = 0.5, rely = 0.07)
 
 ##グローバル変数
 problem = None
@@ -55,7 +59,7 @@ var_diff = tk.StringVar()
 var_diff.set("")
 def clicked_1(self):
     global problem, ans, diff
-    input_diff = int(input_diff)
+    input_diff = int(var_input_diff.get())
     input_digits = txt_digits.get()
     ###エラーメッセージ
     if input_digits == "":
@@ -81,9 +85,9 @@ def clicked_1(self):
     var_problem.set(strings)
     var_diff.set("実測難易度:" + str(diff))
 label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック")
-label_problem.place(relx = 0.45, rely = 0.3)
+label_problem.place(relx = 0.45, rely = 0.2)
 label_real_diff = tk.Label(root, textvariable = var_diff, font = "VLゴシック")
-label_real_diff.place(relx = 0.7, rely = 0.3)
+label_real_diff.place(relx = 0.7, rely = 0.2)
 
 ##問題作成ボタン作成
 button_problem = tk.Button(root, text = "問題を作成！")
@@ -97,7 +101,7 @@ def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
 label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック")
-label_ans.place(relx = 0.45, rely = 0.6)
+label_ans.place(relx = 0.45, rely = 0.65)
 
 ##答えを見るボタンを作成
 button_ans = tk.Button(root, text = "答えを見る！")
