@@ -24,18 +24,24 @@ root.geometry("700x1000")
 label_title = tk.Label(root, text = "虫食い算")
 label_title.place(relx = 0.45, rely = 0.01)
 
-label_diff = tk.Label(root, text = "難易度(0~9)")
+label_diff = tk.Label(root, text = "難易度")
 label_diff.place(relx = 0.35, rely = 0.05)
 
 label_digits = tk.Label(root, text = "桁数の最大値(1~5)")
 label_digits.place(relx = 0.35, rely = 0.1)
 
 ##テキストボックスの作成
-txt_diff = tk.Entry(width = 3)
-txt_diff.place(relx = 0.55, rely = 0.05)
+#txt_diff = tk.Entry(width = 3)
+#txt_diff.place(relx = 0.55, rely = 0.05)
 
 txt_digits = tk.Entry(width = 3)
 txt_digits.place(relx = 0.55, rely = 0.1)
+
+##スケールの作成
+input_diff = tk.IntVar()
+input_diff.set(0)
+scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = input_diff, showvalue = False)
+scale_diff.place(relx = 0.5, rely = 0.05)
 
 ##グローバル変数
 problem = None
@@ -49,19 +55,21 @@ var_diff = tk.StringVar()
 var_diff.set("")
 def clicked_1(self):
     global problem, ans, diff
-    input_diff = txt_diff.get()
+    input_diff = int(input_diff)
     input_digits = txt_digits.get()
     ###エラーメッセージ
-    if input_diff == "" or input_digits == "":
+    if input_digits == "":
         res_null_error = messagebox.showwarning("エラー", "数字を入力してください")
         print("showwarning", res_null_error)
         return 1
-    input_diff = int(input_diff)
+    #input_diff = int(input_diff)
     input_digits = int(input_digits)
+    """
     if input_diff < 0 or input_diff > 9:
         res_diff_error = messagebox.showwarning("エラー", "難易度は0~9の数字で答えてください")
         print("showwarning", res_diff_error)
         return 1
+    """
     if input_digits <= 0 or input_digits >= 6:
         res_digits_error = messagebox.showwarning("エラー", "桁数は1~6の数字で答えてください")
         print("showwarning", res_digits_error)
