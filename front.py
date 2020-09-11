@@ -37,11 +37,16 @@ txt_diff.place(relx = 0.55, rely = 0.05)
 txt_digits = tk.Entry(width = 3)
 txt_digits.place(relx = 0.55, rely = 0.1)
 
+##グローバル変数
+problem = None
+ans = None
+diff = None
 
-var_ans = tk.StringVar()
-var_ans.set("")
-##ボタンが押された時に実行される関数
-def clicked(self):
+##問題作成ボタンが押された時に実行される関数
+var_problem = tk.StringVar()
+var_problem.set("")
+def clicked_1(self):
+    global problem, ans, diff
     input_diff = txt_diff.get()
     input_digits = txt_digits.get()
     ###エラーメッセージ
@@ -64,16 +69,28 @@ def clicked(self):
     problem, ans, diff = back.problem_maker(input_diff, input_digits)
     
     strings = back.print_figure(problem)
+    var_problem.set(strings)
+label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック")
+label_problem.place(relx = 0.45, rely = 0.3)
+
+##問題作成ボタン作成
+button_problem = tk.Button(root, text = "問題を作成！")
+button_problem.bind("<Button-1>", clicked_1)
+button_problem.place(relx = 0.6, rely = 0.15)
+
+##答えを見るボタンが押された時に実行される関数
+var_ans = tk.StringVar()
+var_ans.set("")
+def clicked_2(self):
+    strings = back.print_figure(ans)
     var_ans.set(strings)
 label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック")
-label_ans.place(relx = 0.45, rely = 0.3)
+label_ans.place(relx = 0.45, rely = 0.6)
 
-
-#var_2.set(divisor(int(input_num)))
-##ボタン作成
-button = tk.Button(root, text = "問題を作成！")
-button.bind("<Button-1>", clicked)
-button.place(relx = 0.6, rely = 0.15)
+##答えを見るボタンを作成
+button_ans = tk.Button(root, text = "答えを見る！")
+button_ans.bind("<Button-1>", clicked_2)
+button_ans.place(relx = 0.6, rely = 0.58)
 
 """
 var_2 = tk.StringVar()
