@@ -96,24 +96,16 @@ button_ans = tk.Button(root, text = "答えを見る！")
 button_ans.bind("<Button-1>", clicked_2)
 button_ans.place(relx = 0.6, rely = 0.58)
 
-"""
-var_2 = tk.StringVar()
-var_2.set(" ")
-##ボタンが押された時に実行される関数
-def clicked(self):
-    input_num = txt.get()
-    if input_num == '':
-        res = messagebox.showwarning("エラー", "数字が入力されていません")
-        print("showwarning", res)
-    else:
-        #label_ans.place_forget()
-        #var_2 = tk.StringVar()
-        #var_2.set(divisor(int(input_num)))
-    #txt.delete(0, tk.END)
-    return var_2
-label_ans = tk.Label(root, textvariable = var_2, justify = 'left', font = "VLゴシック")
-label_ans.place(x = 10, y = 60)
-"""
+
+##使い方ボタンがクリックされた時に実行される関数
+def clicked_readme(self):
+    res_readme = messagebox.showinfo("使い方", "1.難易度を0~9から選んで入力します\n2.かける数、かけられる数の最大の桁数を1~5の中から選んで入力します\n3.問題作成ボタンを押します\n4.答えを見るには、答えを見るボタンを押します")
+    print("showinfo", res_readme)
+
+##使い方ボタン
+button_readme = tk.Button(root, text = "使い方を見る")
+button_readme.bind("<Button-1>", clicked_readme)
+button_readme.place(relx = 0.1, rely = 0.01)
 
 ##イベントループ
 root.mainloop()
