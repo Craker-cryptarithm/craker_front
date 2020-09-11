@@ -45,6 +45,8 @@ diff = None
 ##問題作成ボタンが押された時に実行される関数
 var_problem = tk.StringVar()
 var_problem.set("")
+var_diff = tk.StringVar()
+var_diff.set("")
 def clicked_1(self):
     global problem, ans, diff
     input_diff = txt_diff.get()
@@ -67,11 +69,13 @@ def clicked_1(self):
     
     ###本題
     problem, ans, diff = back.problem_maker(input_diff, input_digits)
-    
     strings = back.print_figure(problem)
     var_problem.set(strings)
+    var_diff.set("実測難易度:" + str(diff))
 label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック")
 label_problem.place(relx = 0.45, rely = 0.3)
+label_real_diff = tk.Label(root, textvariable = var_diff, font = "VLゴシック")
+label_real_diff.place(relx = 0.7, rely = 0.3)
 
 ##問題作成ボタン作成
 button_problem = tk.Button(root, text = "問題を作成！")
