@@ -39,15 +39,23 @@ txt_digits.place(relx = 0.55, rely = 0.1)
 
 ##ボタンが押された時に実行される関数
 def clicked(self):
-    input_diff = int(txt_diff.get())
-    input_digits = int(txt_digits.get())
+    input_diff = txt_diff.get()
+    input_digits = txt_digits.get()
+    if input_diff == "" or input_digits == "":
+        res_null_error = messagebox.showwarning("エラー", "数字を入力してください")
+        print("showwarning", res_null_error)
+        return 1
+    input_diff = int(input_diff)
+    input_digits = int(input_digits)
     if input_diff < 0 or input_diff > 9:
         res_diff_error = messagebox.showwarning("エラー", "難易度は0~9の数字で答えてください")
         print("showwarning", res_diff_error)
+        return 1
     if input_digits <= 0 or input_digits >= 6:
         res_digits_error = messagebox.showwarning("エラー", "桁数は1~6の数字で答えてください")
         print("showwarning", res_digits_error)
-    pass
+        return 1
+        
 
 ##ボタン作成
 button = tk.Button(root, text = "問題を作成！")
