@@ -79,6 +79,7 @@ def clicked_1(self):
         print("showwarning", res_digits_error)
         return 1
     
+    button_problem.config(state = 'disable')
     ###本題
     problem, ans, diff = back.problem_maker(input_diff, input_digits)
     strings = back.print_figure(problem)
