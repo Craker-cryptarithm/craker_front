@@ -22,7 +22,7 @@ root.title("craker")
 root.geometry("700x1000")
 
 ##ラベル作成
-label_title = tk.Label(root, text = "虫食い算")
+label_title = tk.Label(root, text = "虫食い算", font = ("", 17))
 label_title.place(relx = 0.45, rely = 0.01)
 
 label_diff = tk.Label(root, text = "難易度")
