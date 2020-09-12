@@ -93,9 +93,9 @@ def clicked_1(self):
     var_problem.set(strings)
     var_diff.set("実測難易度 : " + str(diff))
     button_problem.config(state = 'active')
-label_problem = tk.Label(root, textvariable = var_problem, font = "monospace", bg = "#f1fcfc", fg = "#481380")
+label_problem = tk.Label(root, textvariable = var_problem, font = "Courier", bg = "#f1fcfc", fg = "#481380")
 label_problem.place(relx = 0.45, rely = 0.2)
-label_real_diff = tk.Label(root, textvariable = var_diff, font = "monospace", bg = "#f1fcfc", fg = "#481380")
+label_real_diff = tk.Label(root, textvariable = var_diff, font = "Courier", bg = "#f1fcfc", fg = "#481380")
 label_real_diff.place(relx = 0.7, rely = 0.2)
 
 
@@ -110,7 +110,7 @@ var_ans.set("")
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
-label_ans = tk.Label(root, textvariable = var_ans, font = "monospace", bg = "#f1fcfc", fg = "#481380")
+label_ans = tk.Label(root, textvariable = var_ans, font = "Courier", bg = "#f1fcfc", fg = "#481380")
 label_ans.place(relx = 0.45, rely = 0.65)
 
 ##答えを見るボタンを作成
