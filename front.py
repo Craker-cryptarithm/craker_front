@@ -81,7 +81,7 @@ def clicked_1(self):
         return 1
     """
     if input_digits <= 0 or input_digits >= 6:
-        res_digits_error = messagebox.showwarning("エラー", "桁数は1~6の数字で答えてください")
+        res_digits_error = messagebox.showwarning("エラー", "桁数は1~5の数字で答えてください")
         print("showwarning", res_digits_error)
         return 1
     
@@ -93,14 +93,14 @@ def clicked_1(self):
     var_problem.set(strings)
     var_diff.set("実測難易度 : " + str(diff))
     button_problem.config(state = 'active')
-label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック", bg = "#f1fcfc", fg = "#481380")
+label_problem = tk.Label(root, textvariable = var_problem, font = "monospace", bg = "#f1fcfc", fg = "#481380")
 label_problem.place(relx = 0.45, rely = 0.2)
-label_real_diff = tk.Label(root, textvariable = var_diff, font = "VLゴシック", bg = "#f1fcfc", fg = "#481380")
+label_real_diff = tk.Label(root, textvariable = var_diff, font = "monospace", bg = "#f1fcfc", fg = "#481380")
 label_real_diff.place(relx = 0.7, rely = 0.2)
 
 
 ##問題作成ボタン作成
-button_problem = tk.Button(root, text = "問題を作成！", bg = "#40e0d0", fg = "#633a82")
+button_problem = tk.Button(root, text = "問題を作成！", bg = "#68b0ab", fg = "#633a82")
 button_problem.bind("<Button-1>", clicked_1)
 button_problem.place(relx = 0.6, rely = 0.15)
 
@@ -110,11 +110,11 @@ var_ans.set("")
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
-label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック", bg = "#f1fcfc", fg = "#481380")
+label_ans = tk.Label(root, textvariable = var_ans, font = "monospace", bg = "#f1fcfc", fg = "#481380")
 label_ans.place(relx = 0.45, rely = 0.65)
 
 ##答えを見るボタンを作成
-button_ans = tk.Button(root, text = "答えを見る！", bg = "#40e0d0", fg = "#633a82")
+button_ans = tk.Button(root, text = "答えを見る！", bg = "#68b0ab", fg = "#633a82")
 button_ans.bind("<Button-1>", clicked_2)
 button_ans.place(relx = 0.6, rely = 0.58)
 
@@ -125,7 +125,7 @@ def clicked_readme(self):
     print("showinfo", res_readme)
 
 ##使い方ボタン
-button_readme = tk.Button(root, text = "使い方を見る", bg = "#40e0d0", fg = "#633a82")
+button_readme = tk.Button(root, text = "使い方を見る", bg = "#68b0ab", fg = "#633a82")
 button_readme.bind("<Button-1>", clicked_readme)
 button_readme.place(relx = 0.1, rely = 0.01)
 
