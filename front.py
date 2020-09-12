@@ -68,6 +68,10 @@ def clicked_1(self):
     input_diff = int(var_input_diff.get())
     input_digits = txt_digits.get()
     ###エラーメッセージ
+    if not input_digits.isdecimal():
+        res_str_error = messagebox.showwarning("エラー", "桁数は数字で入力してください")
+        print("showwarning", res_str_error)
+        return 1
     if input_digits == "":
         res_null_error = messagebox.showwarning("エラー", "数字を入力してください")
         print("showwarning", res_null_error)
@@ -76,18 +80,17 @@ def clicked_1(self):
     input_digits = int(input_digits)
     """
     if input_diff < 0 or input_diff > 9:
-        res_diff_error = messagebox.showwarning("エラー", "難易度は0~9の数字で答えてください")
+        res_diff_error = messagebox.showwarning("エラー", "難易度は0~9の数字で入力してください")
         print("showwarning", res_diff_error)
         return 1
     """
     if input_digits <= 0 or input_digits >= 6:
-        res_digits_error = messagebox.showwarning("エラー", "桁数は1~5の数字で答えてください")
+        res_digits_error = messagebox.showwarning("エラー", "桁数は1~5の数字で入力してください")
         print("showwarning", res_digits_error)
         return 1
     
     button_problem.config(state = 'disable')
     ###本題
-    pool = ThreadPool(processes = 1)
     problem, ans, diff = back.problem_maker(input_diff, input_digits)
     if problem == -1:
         res_error = messagebox.showwarning("エラー", "解が見つかりませんでした\nもう一度試してください")
