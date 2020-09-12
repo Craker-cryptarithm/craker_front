@@ -2,8 +2,11 @@
 
 #tkinterの準備
 import tkinter as tk
+from tkinter import *
+from tkinter import ttk
 from tkinter import messagebox
 from multiprocessing.pool import ThreadPool
+
 
 #バックを利用するのに使うやつ
 import sys
@@ -20,32 +23,34 @@ root.title("craker")
 
 ##ウィンドウの大きさを設定
 root.geometry("700x1000")
+root.configure(bg = "#f1fcfc")
+
 
 ##ラベル作成
-label_title = tk.Label(root, text = "虫食い算", font = ("", 17))
+label_title = tk.Label(root, text = "虫食い算", font = ("", 17), bg = "#f1fcfc", fg = "#481380")
 label_title.place(relx = 0.45, rely = 0.01)
 
-label_diff = tk.Label(root, text = "難易度")
+label_diff = tk.Label(root, text = "難易度", bg = "#f1fcfc", fg = "#481380")
 label_diff.place(relx = 0.35, rely = 0.07)
 
-label_digits = tk.Label(root, text = "桁数の最大値(1~5)")
+label_digits = tk.Label(root, text = "桁数の最大値(1~5)", bg = "#f1fcfc", fg = "#481380")
 label_digits.place(relx = 0.35, rely = 0.1)
 
 ##テキストボックスの作成
 #txt_diff = tk.Entry(width = 3)
 #txt_diff.place(relx = 0.55, rely = 0.05)
 
-txt_digits = tk.Entry(width = 3)
+txt_digits = tk.Entry(width = 3, bg = "#72b5b7", fg = "#481380")
 txt_digits.place(relx = 0.55, rely = 0.1)
 
 ##スケールの作成
-label_difficult = tk.Label(root, text = "難")
-label_easy = tk.Label(root, text = "易")
+label_difficult = tk.Label(root, text = "難", bg = "#f1fcfc", fg = "#481380")
+label_easy = tk.Label(root, text = "易", bg = "#f1fcfc", fg = "#481380")
 label_difficult.place(relx = 0.62, rely = 0.04)
 label_easy.place(relx = 0.5, rely = 0.04)
 var_input_diff = tk.IntVar(master = root, value = 0)
 #var_diff.set(0)
-scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1)
+scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1, bg = "#f1fcfc")
 scale_diff.place(relx = 0.5, rely = 0.07)
 
 ##グローバル変数
@@ -86,11 +91,11 @@ def clicked_1(self):
     problem, ans, diff = pool.apply_async(back.problem_maker, (input_diff, input_digits,)).get()
     strings = back.print_figure(problem)
     var_problem.set(strings)
-    var_diff.set("実測難易度:" + str(diff))
+    var_diff.set("実測難易度 : " + str(diff))
     button_problem.config(state = 'active')
-label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック")
+label_problem = tk.Label(root, textvariable = var_problem, font = "VLゴシック", bg = "#f1fcfc", fg = "#481380")
 label_problem.place(relx = 0.45, rely = 0.2)
-label_real_diff = tk.Label(root, textvariable = var_diff, font = "VLゴシック")
+label_real_diff = tk.Label(root, textvariable = var_diff, font = "VLゴシック", bg = "#f1fcfc", fg = "#481380")
 label_real_diff.place(relx = 0.7, rely = 0.2)
 
 
@@ -105,7 +110,7 @@ var_ans.set("")
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
-label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック")
+label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック", bg = "#f1fcfc", fg = "#481380")
 label_ans.place(relx = 0.45, rely = 0.65)
 
 ##答えを見るボタンを作成
