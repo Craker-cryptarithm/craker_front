@@ -71,6 +71,7 @@ def clicked_1(self):
     if not input_digits.isdecimal():
         res_str_error = messagebox.showwarning("エラー", "桁数は数字で入力してください")
         print("showwarning", res_str_error)
+        txt_digits.delete(0, tk.END)
         return 1
     if input_digits == "":
         res_null_error = messagebox.showwarning("エラー", "数字を入力してください")
@@ -87,6 +88,7 @@ def clicked_1(self):
     if input_digits <= 0 or input_digits >= 6:
         res_digits_error = messagebox.showwarning("エラー", "桁数は1~5の数字で入力してください")
         print("showwarning", res_digits_error)
+        txt_digits.delete(0, tk.END)
         return 1
     
     button_problem.config(state = 'disable')
