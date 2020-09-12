@@ -58,11 +58,13 @@ problem = None
 ans = None
 diff = None
 
-##問題作成ボタンが押された時に実行される関数
 var_problem = tk.StringVar()
 var_problem.set("")
 var_diff = tk.StringVar()
 var_diff.set("")
+var_ans = tk.StringVar()
+var_ans.set("")
+##問題作成ボタンが押された時に実行される関数
 def clicked_1(self):
     global problem, ans, diff
     input_diff = int(var_input_diff.get())
@@ -102,6 +104,7 @@ def clicked_1(self):
     var_problem.set(strings)
     var_diff.set("実測難易度 : " + str(diff))
     button_problem.config(state = 'active')
+    var_ans.set("")
 label_problem = tk.Label(root, textvariable = var_problem, font = "Courier", bg = "#f1fcfc", fg = "#481380")
 label_problem.place(relx = 0.45, rely = 0.2)
 label_real_diff = tk.Label(root, textvariable = var_diff, font = "Courier", bg = "#f1fcfc", fg = "#481380")
@@ -114,8 +117,6 @@ button_problem.bind("<Button-1>", clicked_1)
 button_problem.place(relx = 0.6, rely = 0.15)
 
 ##答えを見るボタンが押された時に実行される関数
-var_ans = tk.StringVar()
-var_ans.set("")
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
