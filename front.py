@@ -88,7 +88,11 @@ def clicked_1(self):
     button_problem.config(state = 'disable')
     ###本題
     pool = ThreadPool(processes = 1)
-    problem, ans, diff = pool.apply_async(back.problem_maker, (input_diff, input_digits,)).get()
+    problem, ans, diff = back.problem_maker(input_diff, input_digits)
+    if problem == -1:
+        res_error = messagebox.showwarning("エラー", "解が見つかりませんでした\nもう一度試してください")
+        print("showwarning, res_error")
+        return 1
     strings = back.print_figure(problem)
     var_problem.set(strings)
     var_diff.set("実測難易度 : " + str(diff))
@@ -111,12 +115,12 @@ def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
 label_ans = tk.Label(root, textvariable = var_ans, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_ans.place(relx = 0.45, rely = 0.65)
+label_ans.place(relx = 0.45, rely = 0.5)
 
 ##答えを見るボタンを作成
 button_ans = tk.Button(root, text = "答えを見る！", bg = "#a3d2ca", fg = "#633a82")
 button_ans.bind("<Button-1>", clicked_2)
-button_ans.place(relx = 0.6, rely = 0.58)
+button_ans.place(relx = 0.6, rely = 0.44)
 
 
 ##使い方ボタンがクリックされた時に実行される関数
