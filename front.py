@@ -40,7 +40,7 @@ label_digits.place(relx = 0.35, rely = 0.1)
 #txt_diff = tk.Entry(width = 3)
 #txt_diff.place(relx = 0.55, rely = 0.05)
 
-txt_digits = tk.Entry(width = 3, bg = "#72b5b7", fg = "#481380")
+txt_digits = tk.Entry(width = 3, bg = "#cff1ef", fg = "#481380")
 txt_digits.place(relx = 0.55, rely = 0.1)
 
 ##スケールの作成
@@ -50,7 +50,7 @@ label_difficult.place(relx = 0.62, rely = 0.04)
 label_easy.place(relx = 0.5, rely = 0.04)
 var_input_diff = tk.IntVar(master = root, value = 0)
 #var_diff.set(0)
-scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1, bg = "#f1fcfc")
+scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1)
 scale_diff.place(relx = 0.5, rely = 0.07)
 
 ##グローバル変数
@@ -100,7 +100,7 @@ label_real_diff.place(relx = 0.7, rely = 0.2)
 
 
 ##問題作成ボタン作成
-button_problem = tk.Button(root, text = "問題を作成！")
+button_problem = tk.Button(root, text = "問題を作成！", bg = "#40e0d0", fg = "#633a82")
 button_problem.bind("<Button-1>", clicked_1)
 button_problem.place(relx = 0.6, rely = 0.15)
 
@@ -114,7 +114,7 @@ label_ans = tk.Label(root, textvariable = var_ans, font = "VLゴシック", bg =
 label_ans.place(relx = 0.45, rely = 0.65)
 
 ##答えを見るボタンを作成
-button_ans = tk.Button(root, text = "答えを見る！")
+button_ans = tk.Button(root, text = "答えを見る！", bg = "#40e0d0", fg = "#633a82")
 button_ans.bind("<Button-1>", clicked_2)
 button_ans.place(relx = 0.6, rely = 0.58)
 
@@ -125,7 +125,7 @@ def clicked_readme(self):
     print("showinfo", res_readme)
 
 ##使い方ボタン
-button_readme = tk.Button(root, text = "使い方を見る")
+button_readme = tk.Button(root, text = "使い方を見る", bg = "#40e0d0", fg = "#633a82")
 button_readme.bind("<Button-1>", clicked_readme)
 button_readme.place(relx = 0.1, rely = 0.01)
 
