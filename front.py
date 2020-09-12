@@ -104,7 +104,7 @@ label_real_diff.place(relx = 0.7, rely = 0.2)
 
 
 ##問題作成ボタン作成
-button_problem = tk.Button(root, text = "問題を作成！", bg = "#a3d2ca", fg = "#633a82")
+button_problem = tk.Button(root, text = "問題を作成！", bg = "#cff1ef", fg = "#633a82")
 button_problem.bind("<Button-1>", clicked_1)
 button_problem.place(relx = 0.6, rely = 0.15)
 
@@ -118,7 +118,7 @@ label_ans = tk.Label(root, textvariable = var_ans, font = "Courier", bg = "#f1fc
 label_ans.place(relx = 0.45, rely = 0.5)
 
 ##答えを見るボタンを作成
-button_ans = tk.Button(root, text = "答えを見る！", bg = "#a3d2ca", fg = "#633a82")
+button_ans = tk.Button(root, text = "答えを見る！", bg = "#cff1ef", fg = "#633a82")
 button_ans.bind("<Button-1>", clicked_2)
 button_ans.place(relx = 0.6, rely = 0.44)
 
@@ -129,7 +129,7 @@ def clicked_readme(self):
     print("showinfo", res_readme)
 
 ##使い方ボタン
-button_readme = tk.Button(root, text = "使い方を見る", bg = "#a3d2ca", fg = "#633a82")
+button_readme = tk.Button(root, text = "使い方を見る", bg = "#cff1ef", fg = "#633a82")
 button_readme.bind("<Button-1>", clicked_readme)
 button_readme.place(relx = 0.1, rely = 0.01)
 
