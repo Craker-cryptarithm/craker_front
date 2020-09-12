@@ -116,7 +116,7 @@ button_ans.place(relx = 0.6, rely = 0.58)
 
 ##使い方ボタンがクリックされた時に実行される関数
 def clicked_readme(self):
-    res_readme = messagebox.showinfo("使い方", "1.難易度を0~9から選んで入力します\n2.かける数、かけられる数の最大の桁数を1~5の中から選んで入力します\n3.問題作成ボタンを押します\n4.答えを見るには、答えを見るボタンを押します")
+    res_readme = messagebox.showinfo("使い方", "1.難易度を0~9から選んで入力します\n2.かける数、かけられる数の最大の桁数を\n    1~5の中から選んで入力します\n3.問題作成ボタンを押します\n4.答えを見るには、答えを見るボタンを押します")
     print("showinfo", res_readme)
 
 ##使い方ボタン
