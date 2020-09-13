@@ -22,7 +22,7 @@ root = tk.Tk()
 root.title("craker")
 
 ##ウィンドウの大きさを設定
-root.geometry("700x1000")
+root.geometry("450x550")
 root.configure(bg = "#f1fcfc")
 
 
@@ -31,27 +31,27 @@ label_title = tk.Label(root, text = "虫食い算", font = ("", 17), bg = "#f1fc
 label_title.place(relx = 0.45, rely = 0.01)
 
 label_diff = tk.Label(root, text = "難易度", bg = "#f1fcfc", fg = "#481380")
-label_diff.place(relx = 0.35, rely = 0.07)
+label_diff.place(relx = 0.25, rely = 0.1)
 
 label_digits = tk.Label(root, text = "桁数の最大値(1~5)", bg = "#f1fcfc", fg = "#481380")
-label_digits.place(relx = 0.35, rely = 0.1)
+label_digits.place(relx = 0.25, rely = 0.14)
 
 ##テキストボックスの作成
 #txt_diff = tk.Entry(width = 3)
 #txt_diff.place(relx = 0.55, rely = 0.05)
 
 txt_digits = tk.Entry(width = 3, bg = "#cff1ef", fg = "#481380")
-txt_digits.place(relx = 0.55, rely = 0.1)
+txt_digits.place(relx = 0.57, rely = 0.14)
 
 ##スケールの作成
 label_difficult = tk.Label(root, text = "難", bg = "#f1fcfc", fg = "#481380")
 label_easy = tk.Label(root, text = "易", bg = "#f1fcfc", fg = "#481380")
-label_difficult.place(relx = 0.62, rely = 0.04)
-label_easy.place(relx = 0.5, rely = 0.04)
+label_difficult.place(relx = 0.68, rely = 0.06)
+label_easy.place(relx = 0.5, rely = 0.06)
 var_input_diff = tk.IntVar(master = root, value = 0)
 #var_diff.set(0)
 scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1)
-scale_diff.place(relx = 0.5, rely = 0.07)
+scale_diff.place(relx = 0.5, rely = 0.1)
 
 ##グローバル変数
 problem = None
@@ -106,27 +106,27 @@ def clicked_1(self):
     button_problem.config(state = 'active')
     var_ans.set("")
 label_problem = tk.Label(root, textvariable = var_problem, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_problem.place(relx = 0.45, rely = 0.2)
+label_problem.place(relx = 0.35, rely = 0.27)
 label_real_diff = tk.Label(root, textvariable = var_diff, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_real_diff.place(relx = 0.7, rely = 0.2)
+label_real_diff.place(relx = 0.6, rely = 0.27)
 
 
 ##問題作成ボタン作成
 button_problem = tk.Button(root, text = "問題を作成！", bg = "#b7efcd", fg = "#481380")
 button_problem.bind("<Button-1>", clicked_1)
-button_problem.place(relx = 0.6, rely = 0.15)
+button_problem.place(relx = 0.6, rely = 0.2)
 
 ##答えを見るボタンが押された時に実行される関数
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
 label_ans = tk.Label(root, textvariable = var_ans, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_ans.place(relx = 0.45, rely = 0.5)
+label_ans.place(relx = 0.35, rely = 0.64)
 
 ##答えを見るボタンを作成
 button_ans = tk.Button(root, text = "答えを見る！", bg = "#b7efcd", fg = "#481380")
 button_ans.bind("<Button-1>", clicked_2)
-button_ans.place(relx = 0.6, rely = 0.44)
+button_ans.place(relx = 0.6, rely = 0.57)
 
 
 ##使い方ボタンがクリックされた時に実行される関数
@@ -137,7 +137,7 @@ def clicked_readme(self):
 ##使い方ボタン
 button_readme = tk.Button(root, text = "使い方を見る", bg = "#b7efcd", fg = "#481380")
 button_readme.bind("<Button-1>", clicked_readme)
-button_readme.place(relx = 0.1, rely = 0.01)
+button_readme.place(relx = 0.05, rely = 0.01)
 
 ##イベントループ
 root.mainloop()
