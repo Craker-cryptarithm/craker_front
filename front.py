@@ -18,6 +18,9 @@ from craker_back import back
 ##フレームの作成
 root = tk.Tk()
 
+##ウィンドウのサイズを固定
+root.resizable(width = False, height = False)
+
 ##フレームの名前を設定
 root.title("craker")
 
@@ -50,7 +53,7 @@ label_difficult.place(relx = 0.68, rely = 0.06)
 label_easy.place(relx = 0.5, rely = 0.06)
 var_input_diff = tk.IntVar(master = root, value = 0)
 #var_diff.set(0)
-scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1)
+scale_diff = tk.Scale(root, orient = 'h', from_ = 0, to = 9, variable = var_input_diff, showvalue = False, resolution = 1, length = 100)
 scale_diff.place(relx = 0.5, rely = 0.1)
 
 ##グローバル変数
