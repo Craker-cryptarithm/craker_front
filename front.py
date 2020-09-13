@@ -109,27 +109,27 @@ def clicked_1(self):
     button_problem.config(state = 'active')
     var_ans.set("")
 label_problem = tk.Label(root, textvariable = var_problem, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_problem.place(relx = 0.35, rely = 0.27)
+label_problem.place(relx = 0.35, rely = 0.29)
 label_real_diff = tk.Label(root, textvariable = var_diff, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_real_diff.place(relx = 0.6, rely = 0.27)
+label_real_diff.place(relx = 0.6, rely = 0.29)
 
 
 ##問題作成ボタン作成
 button_problem = tk.Button(root, text = "問題を作成！", bg = "#b7efcd", fg = "#481380")
 button_problem.bind("<Button-1>", clicked_1)
-button_problem.place(relx = 0.6, rely = 0.2)
+button_problem.place(relx = 0.7, rely = 0.2)
 
 ##答えを見るボタンが押された時に実行される関数
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
 label_ans = tk.Label(root, textvariable = var_ans, font = "Courier", bg = "#f1fcfc", fg = "#481380")
-label_ans.place(relx = 0.35, rely = 0.64)
+label_ans.place(relx = 0.35, rely = 0.67)
 
 ##答えを見るボタンを作成
 button_ans = tk.Button(root, text = "答えを見る！", bg = "#b7efcd", fg = "#481380")
 button_ans.bind("<Button-1>", clicked_2)
-button_ans.place(relx = 0.6, rely = 0.57)
+button_ans.place(relx = 0.7, rely = 0.59)
 
 
 ##使い方ボタンがクリックされた時に実行される関数
