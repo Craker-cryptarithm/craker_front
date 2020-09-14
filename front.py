@@ -25,9 +25,14 @@ root.resizable(width = False, height = False)
 root.title("craker")
 
 ##ウィンドウの大きさを設定
+canvas = tk.Canvas(root, width = 450, heigh = 620)
+canvas.pack()
+img = tk.PhotoImage(file = r"/虫食い算背景.png")
+canvas.create_image(400, 300, image = img)
+"""
 root.geometry("450x620")
 root.configure(bg = "#f1fcfc")
-
+"""
 
 ##ラベル作成
 label_title = tk.Label(root, text = "虫食い算", font = ("", 17), bg = "#f1fcfc", fg = "#481380")
