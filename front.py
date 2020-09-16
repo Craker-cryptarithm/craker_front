@@ -27,6 +27,9 @@ canvas.pack()
 img = tk.PhotoImage(file = "background.gif")
 canvas.create_image(225, 310, image = img)
 
+##アイコン設定
+root.iconbitmap("icon.ico")
+
 ##ラベル作成
 label_digits = tk.Label(root, text = "桁数", bg = "#FFFFFF")
 label_digits.place(relx = 0.92, rely = 0.134)
