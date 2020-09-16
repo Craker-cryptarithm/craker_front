@@ -27,7 +27,7 @@ root.title("craker")
 ##ウィンドウの大きさを設定
 canvas = tk.Canvas(root, width = 450, heigh = 620)
 canvas.pack()
-img = tk.PhotoImage(file = "background_small.gif")
+img = tk.PhotoImage(file = "background.gif")
 canvas.create_image(225, 310, image = img)
 """
 root.geometry("450x620")
@@ -115,14 +115,14 @@ def clicked_1(self):
     var_diff.set("実測難易度 : " + str(diff))
     button_problem.config(state = 'active')
     var_ans.set("")
-label_problem = tk.Label(root, textvariable = var_problem, font = ("Courier", 10), bg = "#DE1D00", fg = "#FFFFFF")
+label_problem = tk.Label(root, textvariable = var_problem, font = ("Courier", 10), bg = "#D94B45", fg = "#FFFFFF")
 label_problem.place(relx = 0.42, rely = 0.24)
-label_real_diff = tk.Label(root, textvariable = var_diff, font = ("Courier", 10), bg = "#789E3F", fg = "#FFFFFF")
+label_real_diff = tk.Label(root, textvariable = var_diff, font = ("Courier", 10), bg = "#5F8247", fg = "#FFFFFF")
 label_real_diff.place(relx = 0.65, rely = 0.5)
 
 
 ##問題作成ボタン作成
-button_problem = tk.Button(root, text = "問題を作成！", bg = "#DE1D00", fg = "#FFFFFF", height = 3, width = 7)
+button_problem = tk.Button(root, text = "問題を作成！", bg = "#D94B45", fg = "#FFFFFF", height = 3, width = 7)
 button_problem.bind("<Button-1>", clicked_1)
 button_problem.place(relx = 0.04, rely = 0.19)
 
@@ -130,11 +130,11 @@ button_problem.place(relx = 0.04, rely = 0.19)
 def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
-label_ans = tk.Label(root, textvariable = var_ans, font = ("Courier", 10), bg = "#DE1D00", fg = "#FFFFFF")
+label_ans = tk.Label(root, textvariable = var_ans, font = ("Courier", 10), bg = "#D94B45", fg = "#FFFFFF")
 label_ans.place(relx = 0.42, rely = 0.61)
 
 ##答えを見るボタンを作成
-button_ans = tk.Button(root, text = "答えを見る！", bg = "#DE1D00", fg = "#FFFFFF", height = 3, width = 7)
+button_ans = tk.Button(root, text = "答えを見る！", bg = "#D94B45", fg = "#FFFFFF", height = 3, width = 7)
 button_ans.bind("<Button-1>", clicked_2)
 button_ans.place(relx = 0.04, rely = 0.54)
 
@@ -151,3 +151,9 @@ button_readme.place(relx = 0.02, rely = 0.02)
 
 ##イベントループ
 root.mainloop()
+
+"""MEMO
+apple rgb(235, 60, 60)　235060060
+tree  rgb(17, 180, 46)  017180046
+
+"""
