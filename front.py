@@ -44,7 +44,7 @@ label_diff.place(relx = 0.25, rely = 0.1)
 """
 
 label_digits = tk.Label(root, text = "桁数", bg = "#FFFFFF")
-label_digits.place(relx = 0.93, rely = 0.134)
+label_digits.place(relx = 0.92, rely = 0.134)
 
 ##テキストボックスの作成
 #txt_diff = tk.Entry(width = 3)
@@ -112,13 +112,13 @@ def clicked_1(self):
         return 1
     strings = back.print_figure(problem)
     var_problem.set(strings)
-    var_diff.set("実測難易度 : " + str(diff))
+    var_diff.set("実測難易度\n      " + str(diff))
     button_problem.config(state = 'active')
     var_ans.set("")
 label_problem = tk.Label(root, textvariable = var_problem, font = ("Courier", 10), bg = "#D54A43", fg = "#FFFFFF")
-label_problem.place(relx = 0.42, rely = 0.24)
+label_problem.place(relx = 0.47, rely = 0.35, anchor = "center")
 label_real_diff = tk.Label(root, textvariable = var_diff, font = ("Courier", 10), bg = "#5F8247", fg = "#FFFFFF")
-label_real_diff.place(relx = 0.65, rely = 0.5)
+label_real_diff.place(relx = 0.72, rely = 0.5)
 
 
 ##問題作成ボタン作成
@@ -131,7 +131,7 @@ def clicked_2(self):
     strings = back.print_figure(ans)
     var_ans.set(strings)
 label_ans = tk.Label(root, textvariable = var_ans, font = ("Courier", 10), bg = "#D54A43", fg = "#FFFFFF")
-label_ans.place(relx = 0.42, rely = 0.61)
+label_ans.place(relx = 0.47, rely = 0.73, anchor = "center")
 
 ##答えを見るボタンを作成
 button_ans = tk.Button(root, text = "答えを\n見る！", bg = "#D54A43", fg = "#FFFFFF", height = 3, width = 7)
