@@ -27,8 +27,8 @@ root.title("craker")
 ##ウィンドウの大きさを設定
 canvas = tk.Canvas(root, width = 450, heigh = 620)
 canvas.pack()
-img = tk.PhotoImage(file = r"/虫食い算背景.png")
-canvas.create_image(400, 300, image = img)
+img = tk.PhotoImage(file = r"background_small.png")
+canvas.create_image(225, 310, image = img)
 """
 root.geometry("450x620")
 root.configure(bg = "#f1fcfc")
