@@ -68,14 +68,14 @@ def clicked_problem(self):
     input_digits = txt_digits.get()
 
     ###エラーメッセージ
-    if not input_digits.isdecimal():    #入力されていないとき
-        res_str_error = messagebox.showwarning("エラー", "桁数を入力してください")
+    if input_digits == "":  #入力されていないとき
+        res_null_error = messagebox.showwarning("エラー", "桁数を入力してください")
+        print("showwarning", res_null_error)
+        return 1
+    if not input_digits.isdecimal():    #入力が数字じゃないとき
+        res_str_error = messagebox.showwarning("エラー", "数字を入力してください")
         print("showwarning", res_str_error)
         txt_digits.delete(0, tk.END)
-        return 1
-    if input_digits == "":  #入力が数字じゃないとき
-        res_null_error = messagebox.showwarning("エラー", "数字を入力してください")
-        print("showwarning", res_null_error)
         return 1
     input_digits = int(input_digits)
     if input_digits <= 0 or input_digits >= 6:  #入力の数字が 0~5 じゃないとき
