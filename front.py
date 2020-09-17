@@ -69,7 +69,7 @@ def clicked_problem(self):
 
     ###エラーメッセージ
     if not input_digits.isdecimal():    #入力されていないとき
-        res_str_error = messagebox.showwarning("エラー", "桁数は数字で入力してください")
+        res_str_error = messagebox.showwarning("エラー", "桁数を入力してください")
         print("showwarning", res_str_error)
         txt_digits.delete(0, tk.END)
         return 1
