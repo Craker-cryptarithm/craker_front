@@ -30,6 +30,12 @@ canvas.create_image(225, 310, image = img)
 ##アイコン設定
 root.iconbitmap("icon.ico")
 
+##ラベル表示
+global txt_menu
+txt_menu = tk.StringVar()
+txt_menu.set("たし算編")
+label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
+label_menu.place(relx = 0.8, rely = 0.01)
 
 ##メニューバー作成
 men = tk.Menu(root)
@@ -41,11 +47,17 @@ men.add_cascade(label = "メニュー", menu = menu_file)
 def addition():
     pass
 def subtraction():
-    pass
+    txt_menu.set("ひき算編")
+    label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
+    label_menu.place(relx = 0.8, rely = 0.01)
 def multiplication():
-    pass
+    txt_menu.set("かけ算編")
+    label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
+    label_menu.place(relx = 0.8, rely = 0.01)
 def divide():
-    pass
+    txt_menu.set("わり算編")
+    label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
+    label_menu.place(relx = 0.8, rely = 0.01)
 ###子メニュー
 menu_file.add_command(label = "たし算", command = addition)
 menu_file.add_separator()
