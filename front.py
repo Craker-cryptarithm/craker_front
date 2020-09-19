@@ -14,7 +14,7 @@ from multiprocessing.pool import ThreadPool
 #バックを利用する
 import sys
 sys.path.append('..')
-from craker_back import back
+#from craker_back import back
 
 
 
@@ -29,6 +29,33 @@ canvas.create_image(225, 310, image = img)
 
 ##アイコン設定
 root.iconbitmap("icon.ico")
+
+
+##メニューバー作成
+men = tk.Menu(root)
+root.config(menu = men)
+###親メニュー
+menu_file = tk.Menu(men, tearoff = 0)
+men.add_cascade(label = "メニュー", menu = menu_file)
+
+def addition():
+    pass
+def subtraction():
+    pass
+def multiplication():
+    pass
+def divide():
+    pass
+###子メニュー
+menu_file.add_command(label = "たし算", command = addition)
+menu_file.add_separator()
+menu_file.add_command(label = "ひき算", command = subtraction)
+menu_file.add_separator()
+menu_file.add_command(label = "かけ算", command = multiplication)
+menu_file.add_separator()
+menu_file.add_command(label = "わり算", command = divide)
+menu_file.add_separator()
+
 
 ##ラベル作成
 label_digits = tk.Label(root, text = "桁数", bg = "#FFFFFF")
