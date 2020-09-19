@@ -37,36 +37,43 @@ txt_menu.set("たし算編")
 label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
 label_menu.place(relx = 0.8, rely = 0.01)
 
-##メニューバー作成
-men = tk.Menu(root)
-root.config(menu = men)
-###親メニュー
-menu_file = tk.Menu(men, tearoff = 0)
-men.add_cascade(label = "メニュー", menu = menu_file)
-
-def addition():
+def clicked_addition():
     pass
-def subtraction():
-    txt_menu.set("ひき算編")
-    label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
-    label_menu.place(relx = 0.8, rely = 0.01)
-def multiplication():
-    txt_menu.set("かけ算編")
-    label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
-    label_menu.place(relx = 0.8, rely = 0.01)
-def divide():
-    txt_menu.set("わり算編")
-    label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
-    label_menu.place(relx = 0.8, rely = 0.01)
-###子メニュー
-menu_file.add_command(label = "たし算", command = addition)
-menu_file.add_separator()
-menu_file.add_command(label = "ひき算", command = subtraction)
-menu_file.add_separator()
-menu_file.add_command(label = "かけ算", command = multiplication)
-menu_file.add_separator()
-menu_file.add_command(label = "わり算", command = divide)
-menu_file.add_separator()
+def clicked_subtraction():
+    pass
+def clicked_multiplication():
+    pass
+def clicked_division():
+    pass
+
+##新しいウィンドウの作成
+def createNewWindow():
+    newWindow = tk.Toplevel(root)
+    newWindow.geometry("150x200")
+    newWindow.resizable(width = False, height = False)
+    newWindow.title("モード選択")
+    
+    button_ans = tk.Button(newWindow, text = "たし算", bg = "#FFFFFF", fg = "#000000")
+    button_ans.bind("<Button-1>", clicked_addition)
+    button_ans.pack()
+
+    button_ans = tk.Button(newWindow, text = "ひき算", bg = "#FFFFFF", fg = "#000000")
+    button_ans.bind("<Button-1>", clicked_addition)
+    button_ans.pack()
+
+    button_ans = tk.Button(newWindow, text = "かけ算", bg = "#FFFFFF", fg = "#000000")
+    button_ans.bind("<Button-1>", clicked_addition)
+    button_ans.pack()
+
+    button_ans = tk.Button(newWindow, text = "わり算", bg = "#FFFFFF", fg = "#000000")
+    button_ans.bind("<Button-1>", clicked_addition)
+    button_ans.pack()
+
+
+button_NewWindow = tk.Button(root, text = "モードを選ぶ", command = createNewWindow)
+button_NewWindow.place(relx = 0.85, rely = 0.05)
+
+
 
 
 ##ラベル作成
