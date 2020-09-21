@@ -29,7 +29,6 @@ canvas.create_image(225, 310, image = img)
 root.iconbitmap("icon.ico")
 
 ##ラベル表示
-global txt_menu
 txt_menu = tk.StringVar()
 txt_menu.set("モードを\n選んでね↓")
 label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
@@ -39,27 +38,35 @@ whitchCalculatuion = -1
 
 ##新しいウィンドウの作成
 def createNewWindow():
+    global label_menu
+    label_menu.destroy()
     global whitchCalculatuion
     newWindow = tk.Toplevel(root)
     newWindow.geometry("150x200")
     newWindow.resizable(width = False, height = False)
     newWindow.title("モード選択")
 
+    txt_mode = tk.StringVar()
+
     def clicked_addition():
         global whitchCalculatuion
         whitchCalculatuion = 0
+        txt_mode.set("たし算モード")
         newWindow.destroy()
     def clicked_subtraction():
         global whitchCalculatuion
         whitchCalculatuion = 1
+        txt_mode.set("ひき算モード")
         newWindow.destroy()
     def clicked_multiplication():
         global whitchCalculatuion
         whitchCalculatuion = 2
+        txt_mode.set("かけ算モード")
         newWindow.destroy()
     def clicked_division():
         global whitchCalculatuion
         whitchCalculatuion = 3
+        txt_mode.set("わり算モード")
         newWindow.destroy()
     
     button_addition = tk.Button(newWindow, text = "たし算", bg = "#FFFFFF", fg = "#000000", command = clicked_addition)
@@ -74,21 +81,13 @@ def createNewWindow():
     button_division = tk.Button(newWindow, text = "わり算", bg = "#FFFFFF", fg = "#000000", command = clicked_division)
     button_division.pack()
 
+    label_mode = tk.Label(root, textvariable = txt_mode, bg = "#FFFFFF")
+    label_mode.place(relx = 0.76, rely = 0.03)
+
 
 button_NewWindow = tk.Button(root, text = "モードを選ぶ", command = createNewWindow)
-button_NewWindow.place(relx = 0.85, rely = 0.05)
+button_NewWindow.place(relx = 0.73, rely = 0.09)
 
-label_menu.destroy()
-if whitchCalculatuion == 0:
-    txt_menu.set("たし算モード")
-if whitchCalculatuion == 1:
-    txt_menu.set("ひき算モード")
-if whitchCalculatuion == 2:
-    txt_menu.set("かけ算モード")
-if whitchCalculatuion == 3:
-    txt_menu.set("わり算モード")
-label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
-label_menu.place(relx = 0.76, rely = 0.02)
 
 ##ラベル作成
 label_digits = tk.Label(root, text = "桁数", bg = "#FFFFFF")
