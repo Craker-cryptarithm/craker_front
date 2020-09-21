@@ -9,15 +9,12 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-from multiprocessing.pool import ThreadPool
 
 #バックを利用する
 import sys
 sys.path.append('..')
 #from craker_back import back
 
-global whitchCalculatuion
-whitchCalculatuion = -1
 
 ##ウィンドウの作成
 root = tk.Tk()
@@ -38,25 +35,31 @@ txt_menu.set("たし算編")
 label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
 label_menu.place(relx = 0.8, rely = 0.01)
 
+whitchCalculatuion = -1
 
 ##新しいウィンドウの作成
 def createNewWindow():
+    global whitchCalculatuion
     newWindow = tk.Toplevel(root)
     newWindow.geometry("150x200")
     newWindow.resizable(width = False, height = False)
     newWindow.title("モード選択")
 
     def clicked_addition():
-        whitchCaliculation = 0
+        global whitchCalculatuion
+        whitchCalculatuion = 0
         newWindow.destroy()
     def clicked_subtraction():
-        witchCaliculation = 1
+        global whitchCalculatuion
+        whitchCalculatuion = 1
         newWindow.destroy()
     def clicked_multiplication():
-        whitchCaliculation = 2
+        global whitchCalculatuion
+        whitchCalculatuion = 2
         newWindow.destroy()
     def clicked_division():
-        witchCaliculation = 3
+        global whitchCalculatuion
+        whitchCalculatuion = 3
         newWindow.destroy()
     
     button_addition = tk.Button(newWindow, text = "たし算", bg = "#FFFFFF", fg = "#000000", command = clicked_addition)
@@ -132,14 +135,27 @@ def clicked_problem(self):
         txt_digits.delete(0, tk.END)
         return 1
     
-    button_problem.config(state = 'disable')
-    problem, ans, diff = back.problem_maker(input_diff, input_digits)
+    print(whitchCalculatuion)
+    if whitchCalculatuion == 0:
+        button_problem.config(state = 'disable')
+        problem, ans, diff = back.problem_maker_addition(input_diff, input_digits)
+        print(back.problem_maker_addition(input_diff, input_digits))
+    if whitchCalculatuion == 1:
+        button_problem.config(state = 'disable')
+        problem, ans, diff = back.problem_maker_subtraction(input_diff, input_digits)
+    if whitchCalculatuion == 2:
+        button_problem.config(state = 'disable')
+        problem, ans, diff = back.problem_maker_multiplication(input_diff, input_digits)
+    """
+    if whitchCalculatuion == 3:
+        button_problem.config(state = 'disable')
+        problem, ans, diff = back.problem_maker_division(input_diff, input_digits)
+"""
     if problem == -1:   #タイムアウトが発生したとき
         res_error = messagebox.showwarning("エラー", "解が見つかりませんでした\nもう一度試してください")
         print("showwarning, res_error")
         return 1
-    strings = back.print_figure(problem)
-    var_problem.set(strings)
+    var_problem.set(problem)
     var_diff.set("実測難易度\n      " + str(diff))
     button_problem.config(state = 'active')
     var_ans.set("")
