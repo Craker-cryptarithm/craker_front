@@ -31,9 +31,9 @@ root.iconbitmap("icon.ico")
 ##ラベル表示
 global txt_menu
 txt_menu = tk.StringVar()
-txt_menu.set("たし算編")
+txt_menu.set("モードを\n選んでね↓")
 label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
-label_menu.place(relx = 0.8, rely = 0.01)
+label_menu.place(relx = 0.76, rely = 0.02)
 
 whitchCalculatuion = -1
 
@@ -78,8 +78,17 @@ def createNewWindow():
 button_NewWindow = tk.Button(root, text = "モードを選ぶ", command = createNewWindow)
 button_NewWindow.place(relx = 0.85, rely = 0.05)
 
-
-
+label_menu.destroy()
+if whitchCalculatuion == 0:
+    txt_menu.set("たし算モード")
+if whitchCalculatuion == 1:
+    txt_menu.set("ひき算モード")
+if whitchCalculatuion == 2:
+    txt_menu.set("かけ算モード")
+if whitchCalculatuion == 3:
+    txt_menu.set("わり算モード")
+label_menu = tk.Label(root, textvariable = txt_menu, bg = "#FFFFFF")
+label_menu.place(relx = 0.76, rely = 0.02)
 
 ##ラベル作成
 label_digits = tk.Label(root, text = "桁数", bg = "#FFFFFF")
@@ -114,7 +123,7 @@ var_ans.set("")
 
 ##問題作成ボタンが押された時に実行される関数
 def clicked_problem(self):
-    global problem, ans, diff
+    global problem, ans0, ans1, ans2, ans3, diff
     input_diff = int(var_input_diff.get())
     input_digits = txt_digits.get()
 
@@ -135,22 +144,21 @@ def clicked_problem(self):
         txt_digits.delete(0, tk.END)
         return 1
     
-    print(whitchCalculatuion)
     if whitchCalculatuion == 0:
         button_problem.config(state = 'disable')
-        problem, ans, diff = back.problem_maker_addition(input_diff, input_digits)
-        print(back.problem_maker_addition(input_diff, input_digits))
+        problem, ans0, diff = back.problem_maker_addition(input_diff, input_digits)
     if whitchCalculatuion == 1:
         button_problem.config(state = 'disable')
-        problem, ans, diff = back.problem_maker_subtraction(input_diff, input_digits)
+        problem, ans1, diff = back.problem_maker_subtraction(input_diff, input_digits)
     if whitchCalculatuion == 2:
         button_problem.config(state = 'disable')
-        problem, ans, diff = back.problem_maker_multiplication(input_diff, input_digits)
+        problem, ans2, diff = back.problem_maker_multiplication(input_diff, input_digits)
     """
     if whitchCalculatuion == 3:
         button_problem.config(state = 'disable')
-        problem, ans, diff = back.problem_maker_division(input_diff, input_digits)
+        problem, ans3, diff = back.problem_maker_division(input_diff, input_digits)
 """
+
     if problem == -1:   #タイムアウトが発生したとき
         res_error = messagebox.showwarning("エラー", "解が見つかりませんでした\nもう一度試してください")
         print("showwarning, res_error")
@@ -174,8 +182,16 @@ button_problem.place(relx = 0.06, rely = 0.185)
 
 ##答えを見るボタンが押された時に実行される関数
 def clicked_ans(self):
-    strings = back.print_figure(ans)
-    var_ans.set(strings)
+    if whitchCalculatuion == 0:
+        var_ans.set(ans0)
+    if whitchCalculatuion == 1:
+        var_ans.set(ans1)
+    if whitchCalculatuion == 2:
+        var_ans.set(ans2)
+    """
+    if whitchCalculatuion == 3:
+        var_ans.set(ans3)
+    """
 
 #clicked_ans実行時のラベル
 label_ans = tk.Label(root, textvariable = var_ans, font = ("Courier", 10), bg = "#D54A43", fg = "#FFFFFF")
